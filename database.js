@@ -42,6 +42,7 @@ const tableGuest = `CREATE TABLE IF NOT EXISTS guest (
   const dataUsers = `INSERT INTO users (username, password, role) VALUES (?, ?, ?);`;
   const insertUsers = db.prepare(dataUsers);
   
+  
   // Function for guest data
   function guestData(id) {
     const nama = `Peter Karl ${id}`;
@@ -80,8 +81,9 @@ const tableGuest = `CREATE TABLE IF NOT EXISTS guest (
   insertGuest.finalize();
   insertUsers.finalize();
   
+
   // close database
-  db.close();
+  // db.close();
 
 // export database for any file
 module.exports = {

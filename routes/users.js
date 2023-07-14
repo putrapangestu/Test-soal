@@ -9,7 +9,8 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
-router.post('login-post', function (req, res){
+
+router.post('/login-post', function (req, res){
   const password = req.body.password;
   const username = req.body.username;
 
