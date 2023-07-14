@@ -9,9 +9,7 @@ const database = require('./database');
 router.post('/', function (req, res){
   const saltRounds = 10;
   const password = req.body.password;
-  console.log(password)
   const username = req.body.username;
-  console.log(username)
 
   bcrypt.hash(password, saltRounds, (err, hash) => {
     if (err) {
@@ -19,9 +17,9 @@ router.post('/', function (req, res){
       return;
     }
 
-    const selectDataGuest = `SELECT * FROM users WHERE username='${username}' AND password='${hash}'`;
+    const selectDataGuest = `SELECT * FROM users WHERE username=? AND password=?`;
 
-    database.db.all(selectDataGuest, [], (error, rows) => {
+    database.db.all(selectDataGuest, [username,hash], (error, rows) => {
       if (error) {
         console.log(error);
         res.status(500).json({ error: "Internal server error" });
