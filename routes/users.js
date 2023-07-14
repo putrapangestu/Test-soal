@@ -29,6 +29,7 @@ router.post('login-post', function (req, res){
       }
       // Send data
       res.json(rows);
+      console.log(rows);
     });
   });
 })

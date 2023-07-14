@@ -20,6 +20,7 @@ router.get('/data-guest', function (req, res){
         
         // send data json
         res.json(rows);
+        console.log(rows);
     });
 })
 
